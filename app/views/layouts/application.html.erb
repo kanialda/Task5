@@ -4,11 +4,19 @@
     <title>Task5</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body style="padding-top:60px;">
+    <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <h4 class = "navbar-brand">Make new article <%= link_to 'New Article', new_article_path, class:"btn btn-new-article" %></h4>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
+

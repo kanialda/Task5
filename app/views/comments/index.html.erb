@@ -1,0 +1,16 @@
+<div class="container">
+  <% @comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+    <hr>
+  </p>
+  <div class="comment" id="<%= comment.id %>">
+    <span><%= link_to 'Edit', edit_comment_path(comment.id), class: "btn btn-primary" %> </span>
+    <span><%= link_to 'Delete', comment_path(comment.id), class: "btn btn-primary", method: "DELETE", data: {confirm: 'Delete this data ? '} %> </span>
+  <hr />
+  </div>
+  <% end %>
+  <center>
+  <%= link_to 'New Comment', new_comment_path, class:"btn btn-new-article" %>
+  </center>
+</div>

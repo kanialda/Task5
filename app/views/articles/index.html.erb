@@ -5,55 +5,20 @@
       <div class="grid-item">
         <h3><%= article.title %></h3>
         <p>
-          <%= image_tag article.image.url, data: { toggle: "modal", target: "#myModal#{article.id}" } %>
-        </p>
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" id="myModal<%= article.id %>" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class= "modal-content">
-              <%= image_tag article.image.url %>
-            </div>
-          </div>
-        </div>
-        <p>
           <%= article.content.truncate(100) %>
           <%= link_to 'Read more', article_path(article.id) %>
         </p>
         <div class="article" id="<%= article.id %>">
           <div class="front">
             <p>
-              <center>
                 <span><%= link_to 'Edit', edit_article_path(article.id), class: "btn btn-primary" %> </span>
                 <span><%= link_to 'Delete', article_path(article.id), class: "btn btn-primary", method: "DELETE", data: {confirm: 'Delete this data ? '} %> </span>
-              </center>
             </p>
           </div>
         </div>
       </div>
       <% end %>
-      <%= paginate @articles %>
     </div>
   </div>
-  <nav><center>
-        <ul class="pagination">
-          <li>
-            <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>
-          </li>
-          <li>
-            <a href="#">1</a>
-          </li>
-          <li>
-            <a href="#">2</a>
-          </li>
-          <li>
-            <a href="#">3</a>
-          </li>
-          <li>
-            <a href="#">4</a>
-          </li>
-          <li>
-            <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a>
-          </li>
-        </ul>
-        </center>
-      </nav>
+  <%= paginate @articles %>
 </div>
