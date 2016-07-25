@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'kaminari', '~> 0.17.0'
 gem 'axlsx', '~> 2.0', '>= 2.0.1'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'rubyzip', '~> 1.0.0'
+gem 'axlsx_rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

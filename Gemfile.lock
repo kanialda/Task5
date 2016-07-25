@@ -43,6 +43,9 @@ GEM
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.4.1)
       rubyzip (~> 1.0.0)
+    axlsx_rails (0.4.0)
+      axlsx (>= 2.0.1)
+      rails (>= 3.1)
     builder (3.2.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -166,6 +169,7 @@ PLATFORMS
 
 DEPENDENCIES
   axlsx (~> 2.0, >= 2.0.1)
+  axlsx_rails
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -175,6 +179,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
+  rubyzip (~> 1.0.0)
   sass-rails (~> 5.0)
   sprockets (= 3.6.3)
   turbolinks (~> 5)

@@ -5,6 +5,11 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.page(params[:page]).per(10)
+    @articles = Article.order('created_at DESC')
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def new
