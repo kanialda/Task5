@@ -19,6 +19,7 @@ gem 'kaminari', '~> 0.17.0'
 gem 'axlsx', '~> 2.0', '>= 2.0.1'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'rubyzip', '~> 1.0.0'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'axlsx_rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,15 +1,9 @@
 class ArticlesController < ApplicationController
   require 'comment'
-
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @articles = Article.page(params[:page]).per(10)
-    @articles = Article.order('created_at DESC')
-    respond_to do |format|
-      format.html
-      format.xlsx
-    end
   end
 
   def new
@@ -57,6 +51,19 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def export_excel
+    p = Axlsx::Package.new
+    wb = p.workbook
+    wb.add_worksheet(:name => "Basic Worksheet") do |sheet|
+    (1..10).each { |label| sheet.add_row [label, rand(24)+1] }
+      sheet.add_chart(Axlsx::Bar3DChart, :start_at => "A14", :end_at => "F24") do |chart|
+        chart.add_series :data => sheet["B1:B10"], :labels => sheet["A1:A10"], :title => sheet["A1"]
+      end
+    end
+    p.serialize('charts.xlsx')
 
   end
 
