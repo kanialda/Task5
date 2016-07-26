@@ -7,7 +7,7 @@
   max-width: 420px;
   padding: 30px 38px 66px;
   margin: 0 auto;
-  background-color: #eee;
+  background-color: #99CCFF;
   border: 3px dotted rgba(0,0,0,0.1);  
   }
 
@@ -16,7 +16,7 @@
   margin-bottom: 30px;
 }
 
-.form-control {
+.form-control2 {
   position: relative;
   font-size: 16px;
   height: auto;

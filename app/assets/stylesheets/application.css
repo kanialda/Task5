@@ -12,5 +12,6 @@
  *
  *= require bootstrap.min
  *= require masonry-custom
+ *= require login
  *= require_self
  */

@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
    else
    params[:username]
    flash[:error] = "Your data not valid"
-   render "new"
+   render "users#new"
    end
   end
   

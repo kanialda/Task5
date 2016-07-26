@@ -1,19 +1,15 @@
 <div id="main-content">
   <%= form_for @article, html: { multipart: true } do |f| %>
-
-  <div class="form-group">
-      
+  <div class="form-group">  
       <%= f.label :title %>
       <%= f.text_field :title, class: "form-control" %>
       <%= @article.errors[:title].first unless @article.errors[:title].blank? %>
     <br>
-
       <%= f.label :content %>
       <%= f.text_area :content,  cols: 20, rows: 10, class: "form-control" %>
       <%= @article.errors[:content].first unless @article.errors[:content].blank? %>
     <br>
       <%= f.submit :submit, class: "btn btn-default" %>
-    
   </div>
 </div>
 <% end %>
