@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  require 'comment'
+  # require 'comment'
   before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -20,11 +20,9 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-
-  def edit
-  end
-
+  
   def update
+    @article = Article.find_by_id(params[:id])
     if @article.update(params_article)
       flash[:notice] = "Success Update Records"
       redirect_to action: 'index'
@@ -35,6 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article = Article.find_by_id(params[:id])
     if @article.destroy
       flash[:notice] = "Success Delete a Records"
       redirect_to action: 'index'
@@ -51,7 +50,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
+   @article = Article.find_by_id(params[:id])
   end
 # 
   # def export_excel

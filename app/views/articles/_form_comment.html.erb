@@ -2,7 +2,7 @@
         <%= f.hidden_field :article_id, value: @article.id %>
         <br/>
         <%= f.label :content %>
-        <%= f.text_area :content, cols: 20, rows: 10 %>
+        <%= f.text_area :content, class: "comment", cols: 20, rows: 5 %>
         <br/>
-        <%= f.submit :submit %>
+        <%= f.submit :submit, class: "btn btn-primary" %>
     <% end %>

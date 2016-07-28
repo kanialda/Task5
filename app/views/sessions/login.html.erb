@@ -12,6 +12,8 @@
       <%= label_tag :password %>
       <%= password_field_tag :password, :password, class: "form-control" %>
       <br/>
+      <h4> <%= link_to 'Forgot password? Click here', reset_password_path %> </h4>
+      <br>
       <%= submit_tag :submit, class: "btn btn-default" %>
       <% end %>
     </div>
