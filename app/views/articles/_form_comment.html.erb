@@ -2,7 +2,12 @@
         <%= f.hidden_field :article_id, value: @article.id %>
         <br/>
         <%= f.label :content %>
-        <%= f.text_area :content, class: "comment", cols: 20, rows: 5 %>
+        <%= f.text_area :content, class: "comment", cols: 20, rows: 5, placeholder: "Enter your comment" %>
         <br/>
-        <%= f.submit :submit, class: "btn btn-primary" %>
+        <% if !current_user %>
+            <%= link_to 'Log-In', login_path, class: "btn btn-primary" %>
+            <% else %>
+            <%= f.submit :submit, class: "btn btn-primary" %>
+            <% end %>
+        
     <% end %>

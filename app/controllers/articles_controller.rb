@@ -52,19 +52,19 @@ class ArticlesController < ApplicationController
   def edit
    @article = Article.find_by_id(params[:id])
   end
-# 
-  # def export_excel
-    # p = Axlsx::Package.new
-    # wb = p.workbook
-    # wb.add_worksheet(:name => "Basic Worksheet") do |sheet|
-    # (1..10).each { |label| sheet.add_row [label, rand(24)+1] }
-      # sheet.add_chart(Axlsx::Bar3DChart, :start_at => "A14", :end_at => "F24") do |chart|
-        # chart.add_series :data => sheet["B1:B10"], :labels => sheet["A1:A10"], :title => sheet["A1"]
-      # end
-    # end
-    # p.serialize('charts.xlsx')
-# 
-  # end
+
+def download
+    @articles = Articles.all
+    respond_to do | format | 
+    format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="articles.xlsx"' }
+    end
+end
+
+ def import
+    Article.import(params[:file])
+    redirect_to root_url, notice: "Articles Imported"
+  end
+
 
   private
 

@@ -8,8 +8,9 @@
   <%= @article.content %>
 </p>
 <p>
-  <%= link_to 'Back to Index', articles_path %> |
-  <%= link_to 'Edit', edit_article_path(@article) %>
+  <%= link_to 'Back to Index', articles_path, class: "btn btn-default" %>
+  <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-default" %>
+  <%= link_to 'Export', download_path(format: :xlsx), class: "btn btn-default" %>
 </p>
 <hr />
 <div id="form-comment">

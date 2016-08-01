@@ -1,0 +1,5 @@
+wb = xlsx_package.workbook
+render :partial => 'shared/cover_sheet', :locals => {:wb => wb}
+wb.add_worksheet(name: "Content") do |sheet|
+    sheet.add_row ['Content']
+end
