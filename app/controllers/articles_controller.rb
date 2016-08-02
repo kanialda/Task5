@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
 
   before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
-
   def index
     @articles = Article.page(params[:page]).per(10)
   end
@@ -20,7 +19,7 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-  
+
   def update
     @article = Article.find_by_id(params[:id])
     if @article.update(params_article)
@@ -50,20 +49,20 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-   @article = Article.find_by_id(params[:id])
+    @article = Article.find_by_id(params[:id])
   end
 
-def download
+  def download
     @article = Article.all
     @comments = Article.find_by_id(params[:id]).comments
-    respond_to do | format | 
-    format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="articles.xlsx"' }
+    respond_to do | format |
+      format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="articles.xlsx"' }
     end
-end
+  end
 
- def import
+  def import
     Article.import(params[:file])
-    redirect_to root_url, notice: "Articles Imported"
+    redirect_to root_url, notice: "Articles imported."
   end
 
   private

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :articles
+  resources :articles do
+    collection { post :import }
+  end
   
   resources :comments
   get "sign_up" => "users#new", :as => "sign_up"
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
   get "reset-password/:token/edit" => "sessions#reset_password_edit", :as => "reset_password_edit"
   post "reset-password-process/:token" => "sessions#reset_password_process", :as => "reset_password_process"
   get "download/:id" => "articles#download", :as => "download"
-  post "import" => "articles#import", :as => "import"
 
   root 'articles#index'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
