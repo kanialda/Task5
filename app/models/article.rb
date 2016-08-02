@@ -3,8 +3,6 @@ class Article < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :title, presence: true, length: { minimum: 5 }
   validates :content, presence: true, length: { minimum: 10 }
-  
-  
 
 def self.import(file)
    
@@ -16,7 +14,6 @@ def self.import(file)
        article_new = Article.new
        article_new.title = page_article.row(no_row)[0]
        article_new.content = page_article.row(no_row)[1]
-       article_new.published = page_article.row(no_row)[3]
        article_new.save(validate:false)
    end
 

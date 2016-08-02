@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   resources :articles
+  
   resources :comments
   get "sign_up" => "users#new", :as => "sign_up"
   resources :users
   resources :sessions
-  resources :posts
 
   get "login" => "sessions#new", :as => "login"
   post "create" => "sessions#create"
@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   post "find-reset-password" => "find_reset_password", :as => "find_reset_password"
   get "reset-password/:token/edit" => "sessions#reset_password_edit", :as => "reset_password_edit"
   post "reset-password-process/:token" => "sessions#reset_password_process", :as => "reset_password_process"
-  get "download" => "articles#download", :as => "download"
+  get "download/:id" => "articles#download", :as => "download"
+  post "import" => "articles#import", :as => "import"
 
   root 'articles#index'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

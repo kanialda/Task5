@@ -24,6 +24,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'axlsx', '~> 2.0', '>= 2.0.1'
 gem 'axlsx_rails'
 gem 'rubyzip', '~> 1.0.0'
+gem 'roo'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

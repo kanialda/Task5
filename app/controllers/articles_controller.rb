@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  # require 'comment'
+
   before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -54,7 +54,8 @@ class ArticlesController < ApplicationController
   end
 
 def download
-    @articles = Articles.all
+    @article = Article.all
+    @comments = Article.find_by_id(params[:id]).comments
     respond_to do | format | 
     format.xlsx { response.headers['Content-Disposition'] = 'attachment; filename="articles.xlsx"' }
     end
@@ -64,7 +65,6 @@ end
     Article.import(params[:file])
     redirect_to root_url, notice: "Articles Imported"
   end
-
 
   private
 
