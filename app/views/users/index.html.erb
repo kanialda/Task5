@@ -1,2 +1,32 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class ="container">
+  <br />
+  <br>
+  <% response = RestClient.get 'http://kanialda:kanialisda123@0.0.0.0:3000/api/v1/bycycles'%>
+  <%= JSON.parse(response) %>
+  <html>
+    <body>
+      <script>
+            $.getJSON('http://kanialda:kanialisda123@0.0.0.0:3000/api/v1/bycycles', function (data) {
+                var tr;
+                for (var i = 0; i < json.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + json[i].id + "</td>");
+                    tr.append("<td>" + json[i].name + "</td>");
+                    tr.append("<td>" + json[i].series + "</td>");
+                    $('table').append(tr);
+            }
+        });
+
+      </script>
+
+      <table border="1">
+        <tr>
+          <td> ID</td>
+          <td> Name</td>
+          <td> Series</td>
+        </tr>
+
+      </table>
+    </body>
+  </html>
+</div>

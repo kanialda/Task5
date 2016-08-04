@@ -1,6 +1,17 @@
 class UsersController < ApplicationController
+ require 'rest-client'
+ require 'json'
  
+  username = "kanialda" # needed to access the APi
+  password = "kanialisda123" # needed to access the APi
+  API_BASE_URL = 'http://kanialda:kanialisda123@0.0.0.0:3000/api/v1/bycycles'# base url of the API
+  
   def index
+    
+    RestClient.get(API_BASE_URL )
+    # RestClient.get 'http://kanialda:kanialisda123@0.0.0.0:3000/api/v1/bycycles', {:accept => :json}
+    # JSON.parse(response)
+
   end
 
   def new
@@ -8,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    
     @user = User.new(params_user)
     if @user.save
       begin
