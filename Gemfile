@@ -25,6 +25,7 @@ gem 'axlsx', '~> 2.0', '>= 2.0.1'
 gem 'axlsx_rails'
 gem 'rubyzip', '~> 1.0.0'
 gem 'roo'
+gem 'rest-client', '~> 2.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -39,6 +40,9 @@ gem 'sprockets', '3.6.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+ruby "2.2.2"
+    gem 'rails_12factor', group: "production"
+    gem 'thin'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
