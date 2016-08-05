@@ -1,18 +1,21 @@
 <div class ="container">
   <br />
   <br>
-  <% response = RestClient.get 'http://kanialda:kanialisda123@0.0.0.0:3000/api/v1/bycycles'%>
-  <%= JSON.parse(response) %>
+  <% response = RestClient.get 'http://kanialda:kanialisda123@0.0.0.0:3000/api/v1/bycycles', {:accept => :json }%>
   <html>
     <body>
+      <h1>Users Bycycle</h1>
       <script>
-            $.getJSON('http://kanialda:kanialisda123@0.0.0.0:3000/api/v1/bycycles', function (data) {
+      $(document).ready(function (index, bycycles) {
+            var json = response
                 var tr;
                 for (var i = 0; i < json.length; i++) {
                     tr = $('<tr/>');
                     tr.append("<td>" + json[i].id + "</td>");
                     tr.append("<td>" + json[i].name + "</td>");
                     tr.append("<td>" + json[i].series + "</td>");
+                    tr.append("<td>" + json[i].created_at + "</td>");
+                    tr.append("<td>" + json[i].updated_at + "</td>");
                     $('table').append(tr);
             }
         });
@@ -24,6 +27,8 @@
           <td> ID</td>
           <td> Name</td>
           <td> Series</td>
+          <td> Created</td>
+          <td> Updated</td>
         </tr>
 
       </table>

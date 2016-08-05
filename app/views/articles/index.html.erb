@@ -6,12 +6,13 @@
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
   <% end %>
-
+    
   <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 50 }'>
     <div class="grid">
 
       <% @articles.each do |article| %>
       <div class="grid-item">
+        
         <h3><%= article.title %></h3>
         <p>
           <%= article.content.truncate(100) %>

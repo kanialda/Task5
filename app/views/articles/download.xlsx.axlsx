@@ -5,7 +5,6 @@ wb.add_worksheet(name: "article") do |sheet|
         sheet.add_row [article.title, article.content]
     end
 end
-wb = xlsx_package.workbook
 wb.add_worksheet(name: "comment") do |sheet|
     sheet.add_row ["Content"]
     @comments.each do |comment|
